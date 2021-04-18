@@ -14,6 +14,7 @@ INCLUDE( cmake/Options.cmake )
 
 add_library(libRFC
     libRFC/libRFC.cpp
+    libRFC/base64.cpp
     )
 
 target_include_directories(libRFC PUBLIC include)
@@ -64,7 +65,9 @@ endif()
 
 add_executable(libRFCTest
   test/test_main.cpp
+  test/test_base64.cpp
 )
+
 target_link_libraries(libRFCTest PUBLIC libRFC ${GTEST_BOTH_LIBRARIES} )
 target_include_directories(libRFCTest PUBLIC include)
 target_include_directories(libRFCTest PRIVATE ${GTEST_INCLUDE_DIRS} libRFC)
